@@ -63,7 +63,7 @@ nav {
 
 .cta-btn-upload{
     padding: 0.8rem 1.5rem;
-    width: 40%;
+    width: 100%;
     border: none;
     border-radius: 24px;
     cursor: pointer;
@@ -126,7 +126,7 @@ nav {
 }
 
 .image-content {
-    display: flex;
+    display: grid;
     justify-content: center;
     align-items: center;
     height: 100%; /* Adjust as needed */
