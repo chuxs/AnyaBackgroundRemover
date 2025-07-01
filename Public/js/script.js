@@ -18,9 +18,14 @@ function handleFiles() {
   imgData.style.justifyContent = "center";
   imgData.style.alignItems = "center";
 
-  const maintainButton = document.getElementById("cta-btn-upload");
+  const uploadButton = document.getElementById("cta-btn-upload-id");
+  uploadButton.style.display = "none";
 
-  maintainButton.style.marginLeft = "25%";
+  const  imageSection = document.getElementById("image-content-id");
+  imageSection.style.display = "grid";
+
+  const removeButton = document.getElementById("cta-btn-erase");
+  removeButton.style.marginLeft = "25%";
 
 }
 

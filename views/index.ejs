@@ -20,7 +20,7 @@
         <section id="home" class="hero">
             <h1>Remove Image Background</h1>
             <p>100% Automatically and Free</p>
-            <button class="cta-btn"><a href="#write">Get Started <i class="fa-solid fa-marker"></i> </a></button>
+            <button class="cta-btn"><a href="#write">Get Started <i class="fa fa-pencil-square-o" aria-hidden="true"></i> </a></button>
         </section>
 
         <section class="features" id="feat">
@@ -30,11 +30,18 @@
                     <img src="images/sampleimage.png" alt="No Background">
                 </div>
             
-                <div class="feature-card" id="feature-card-id">
-                    <form action="http://localhost:3000/" method="POST" class="image-content">
-                        <img id ="uploaded-modified-image" style="display: none;">
-                        <label for="image_input" class="cta-btn-upload" id="cta-btn-upload">Upload</label>
+                <div class="feature-card">
+                    <form action="/erase" method="GET" class="image-content" id="image-content-id">
+                        <img id ="uploaded-modified-image" style="display: none;" name="image-given">
+
+                        <!-- upload image button -->
+                        <label for="image_input" class="cta-btn-upload" id="cta-btn-upload-id">Upload</label>
+
+                        <!-- Erase backgound button -->
+                        <label type="submit" class="cta-btn-upload cta-btn-rmbk" id="cta-btn-erase">Erase BG</label>
+
                         <input type="file" id="image_input" name="image_input" style="display: none;">
+
                      </form>
                 </div>
                 
