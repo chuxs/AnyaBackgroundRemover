@@ -63,7 +63,7 @@ nav {
 
 .cta-btn-upload{
     padding: 0.8rem 1.5rem;
-    width: 100%;
+    width: 150px;
     border: none;
     border-radius: 24px;
     cursor: pointer;
@@ -71,9 +71,14 @@ nav {
     background: #3a3d41;
     font-size: 1.1rem;
     margin-top: 2rem;
+    position: center;
     color: white;
     text-decoration: none;
     font-family: 'Poppins'; 
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
 }
 
 .cta-btn a{
@@ -130,6 +135,14 @@ nav {
     justify-content: center;
     align-items: center;
     height: 100%; /* Adjust as needed */
+}
+
+#ploaded-modified-image{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 80px; /* Adjust as needed */
+    width: 50px; /* Adjust as needed */
 }
 
 
