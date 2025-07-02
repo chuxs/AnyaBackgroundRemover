@@ -31,16 +31,30 @@
                 </div>
             
                 <div class="feature-card">
-                    <form action="/erase" method="GET" class="image-content" id="image-content-id">
-                        <img id ="uploaded-modified-image" style="display: none;" name="image-given">
+                    <form action="/submit" method="POST" class="image-content" id="image-content-id" enctype="multipart/form-data">
+
+                        <% if (!result) { %>
+                        <img id ="uploaded-modified-image" style="display: none;" name="image-given" >
 
                         <!-- upload image button -->
-                        <label for="image_input" class="cta-btn-upload" id="cta-btn-upload-id">Upload</label>
+                        <label for="image_inputID" class="cta-btn-upload" id="cta-btn-upload-id">Upload</label>
 
+                        <input type="file" id="image_inputID" name="image_inputName" style="display: none;">
+                        
                         <!-- Erase backgound button -->
-                        <label type="submit" class="cta-btn-upload cta-btn-rmbk" id="cta-btn-erase">Erase BG</label>
+                        <button type="submit" class="cta-btn-upload cta-btn-rmbk" id="cta-btn-erase" formaction="/erase">Erase BG</button>
 
-                        <input type="file" id="image_input" name="image_input" style="display: none;">
+                        <% } else { %>
+                            <img id ="uploaded-modified-image" name="image-given" src= <%= result %> >
+
+                            <!-- upload image button -->
+                            <label for="image_inputID" class="cta-btn-upload" id="cta-btn-upload-id">Upload</label>
+    
+                            <input type="file" id="image_inputID" name="image_inputName" style="display: none;">
+                            
+                            <!-- Erase backgound button -->
+                            <button type="submit" class="cta-btn-upload cta-btn-rmbk" id="cta-btn-erase" formaction="/erase">Erase BG</button>
+                        <% } %>
 
                      </form>
                 </div>

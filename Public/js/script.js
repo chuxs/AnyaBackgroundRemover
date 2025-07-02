@@ -1,6 +1,6 @@
 var imgData = "";
 
-const inputElement = document.getElementById("image_input");
+const inputElement = document.getElementById("image_inputID");
 inputElement.addEventListener("change", handleFiles, false);
 
 
@@ -10,7 +10,8 @@ function handleFiles() {
 
   imgData = document.getElementById("uploaded-modified-image");
 
-  imgData.src = URL.createObjectURL(fileList[0]);
+  const actualImage = URL.createObjectURL(fileList[0]);
+  imgData.src = actualImage;
 
   imgData.style.display = "grid";
   imgData.style.width = "300px";
