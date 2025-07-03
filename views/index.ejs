@@ -29,43 +29,37 @@
                 <div class="feature-card feature-nobk">
                     <img src="images/sampleimage.png" alt="No Background">
                 </div>
-            
-                <div class="feature-card">
-                    <form action="/submit" method="POST" class="image-content" id="image-content-id" enctype="multipart/form-data">
 
+                <div class="feature-btn">                 
+                    <form action="/submit" method="POST" class="image-content" id="image-content-id" enctype="multipart/form-data">
+                       <!-- upload image button -->
+                       <label for="image_inputID" class="cta-btn-upload" id="cta-btn-upload-id">Upload</label>
+
+                       <input type="file" id="image_inputID" name="image_inputName" style="display: none;">
+                                           
+                       <!-- Erase backgound button -->
+                       <button type="submit" class="cta-btn-upload cta-btn-rmbk" id="cta-btn-erase" formaction="/erase">Erase BG</button> 
+
+                       <button type="submit" class="cta-btn-upload cta-btn-rmbk" id="cta-btn-erase" formaction="/erase">Download</button> 
+                    </form>
+                </div>
+            
+                <div class="feature-card feature-bkless">
+                    <form class="image-content" id="image-content-id" >
                         <% if (!result) { %>
                         <img id ="uploaded-modified-image" style="display: none;" name="image-given" >
 
-                        <!-- upload image button -->
-                        <label for="image_inputID" class="cta-btn-upload" id="cta-btn-upload-id">Upload</label>
-
-                        <input type="file" id="image_inputID" name="image_inputName" style="display: none;">
-                        
-                        <!-- Erase backgound button -->
-                        <button type="submit" class="cta-btn-upload cta-btn-rmbk" id="cta-btn-erase" formaction="/erase">Erase BG</button>
-
+ 
                         <% } else { %>
-                            <img id ="uploaded-modified-image" name="image-given" src= <%= result %> >
+                            <img id ="uploaded-modified-image" name="image-given" src= <%= result%> >
 
-                            <!-- upload image button -->
-                            <label for="image_inputID" class="cta-btn-upload" id="cta-btn-upload-id">Upload</label>
-    
-                            <input type="file" id="image_inputID" name="image_inputName" style="display: none;">
-                            
-                            <!-- Erase backgound button -->
-                            <button type="submit" class="cta-btn-upload cta-btn-rmbk" id="cta-btn-erase" formaction="/erase">Erase BG</button>
                         <% } %>
-
                      </form>
                 </div>
-                
+               
             </div>
-        </section>   
-
-        <section class="features" id="write">
-            <div class="feature-grid">
-
         </section>  
+
 
     </main>
     <script src="/js/script.js"></script>

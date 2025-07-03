@@ -5,6 +5,7 @@ import { fileURLToPath } from "url";
 import axios from "axios";
 import multer from "multer";
 import FormData from "form-data";
+import e from "express";
 
 
 const app = express();
@@ -26,30 +27,31 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "Public")));
 
 app.get("/", (req, res) => {
-    res.render("index.ejs");
-  });
+    res.render("index.ejs", { result: null});
+});
 
 app.post("/erase", upload.single('image_inputName'), async (req, res) => {
     imageServer = req.file;
 
     const data = new FormData();
-    data.append('image', imageServer.buffer, imageServer.originalname);
+    data.append('file', imageServer.buffer, imageServer.originalname);
 
     try {
-      const apiBackgroundRemover = await axios.post(`${API_URL}`, data, {
+      const apiBackgroundRemover = await axios.post(API_URL, data, {
         headers: {
-            'x-rapidapi-key': `${API_KEY}`,
-            'x-rapidapi-host': 'background-remover.p.rapidapi.com',
+            'x-rapidapi-key': API_KEY,
+            'x-rapidapi-host': 'remove-background18.p.rapidapi.com',
             ...data.getHeaders(),
         }
       });
 
       const result = apiBackgroundRemover.data;
       console.log(result);
-      res.render("index.ejs", { result: result });
+      res.render("index.ejs", { result : result.url });
     } 
     catch (error) {
-      res.render("index.ejs", { error: error.message });
+      res.render("index.ejs", { result: error.message });
+      console.log(error.message);
     }
 });
 

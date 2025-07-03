@@ -19,14 +19,14 @@ function handleFiles() {
   imgData.style.justifyContent = "center";
   imgData.style.alignItems = "center";
 
-  const uploadButton = document.getElementById("cta-btn-upload-id");
-  uploadButton.style.display = "none";
+  // const uploadButton = document.getElementById("cta-btn-upload-id");
+  // uploadButton.style.display = "none";
 
-  const  imageSection = document.getElementById("image-content-id");
-  imageSection.style.display = "grid";
+  // const  imageSection = document.getElementById("image-content-id");
+  // imageSection.style.display = "grid";
 
-  const removeButton = document.getElementById("cta-btn-erase");
-  removeButton.style.marginLeft = "25%";
+  // const removeButton = document.getElementById("cta-btn-erase");
+  // removeButton.style.marginLeft = "25%";
 
 }
 
