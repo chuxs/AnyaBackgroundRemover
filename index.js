@@ -27,7 +27,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "Public")));
 
 app.get("/", (req, res) => {
-    res.send("working");
+    res.render("index.ejs", { result: null});
 });
 
 app.post("/erase", upload.single('image_inputName'), async (req, res) => {
