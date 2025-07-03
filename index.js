@@ -48,6 +48,7 @@ app.post("/erase", upload.single('image_inputName'), async (req, res) => {
       const result = apiBackgroundRemover.data;
       console.log(result);
       res.render("index.ejs", { result : result.url });
+      // res.redirect(`/?result=${encodeURIComponent(result.url)}`);
     } 
     catch (error) {
       res.render("index.ejs", { result: error.message });
