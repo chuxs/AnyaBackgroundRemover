@@ -58,3 +58,6 @@ app.post("/erase", upload.single('image_inputName'), async (req, res) => {
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
+
+// export const handler = serverless(app);
+export default app;
