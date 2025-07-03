@@ -4,7 +4,6 @@ let secondsLeft = 6;
 const inputElement = document.getElementById("image_inputID");
 inputElement.addEventListener("change", handleFiles, false);
 
-
 function handleFiles() {
   const fileList = this.files; /* now you can work with the file list */
   console.log(fileList);
@@ -41,3 +40,14 @@ const timer = setInterval(() => {
     document.getElementById('loading').style.display = 'none';
   }
 }, 1000);
+
+const myImg = document.getElementById('cta-btn-download')
+
+myImg.addEventListener('click', () => {
+const link = document.createElement('a');
+link.href = myImg.src;
+link.download = 'modified-image.png';
+document.body.appendChild(link); // Required for Firefox
+link.click();
+document.body.removeChild(link); // Clean up
+});
