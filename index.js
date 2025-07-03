@@ -13,7 +13,7 @@ const port = process.env.PORT || 3000;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 var imageServer = "";
-const API_URL = "https://remove-background18.p.rapidapi.com/public/remove-background";
+const API_URL = "https://picsart-remove-background2.p.rapidapi.com/removebg";
 const API_KEY = "33e8d841e0msh01e25eab6dfbcd2p1f8a2ejsn3e29e7450492" 
 
 
@@ -34,21 +34,22 @@ app.post("/erase", upload.single('image_inputName'), async (req, res) => {
     imageServer = req.file;
 
     const data = new FormData();
-    data.append('file', imageServer.buffer, imageServer.originalname);
+    data.append('image', imageServer.buffer, imageServer.originalname);
+    data.append('bg_blur', '0');
+    data.append('format', 'PNG'); 
 
     try {
       const apiBackgroundRemover = await axios.post(API_URL, data, {
         headers: {
             'x-rapidapi-key': API_KEY,
-            'x-rapidapi-host': 'remove-background18.p.rapidapi.com',
+            'x-rapidapi-host': 'picsart-remove-background2.p.rapidapi.com',
+            'User-Agent': 'RapidAPI',
             ...data.getHeaders(),
         }
       });
-
       const result = apiBackgroundRemover.data;
       console.log(result);
-      res.render("index.ejs", { result : result.url });
-      // res.redirect(`/?result=${encodeURIComponent(result.url)}`);
+      res.render("index.ejs", { result : result.data.url });
     } 
     catch (error) {
       res.render("index.ejs", { result: error.message });
