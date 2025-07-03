@@ -1,5 +1,5 @@
 var imgData = "";
-let secondsLeft = 5;
+let secondsLeft = 6;
 
 const inputElement = document.getElementById("image_inputID");
 inputElement.addEventListener("change", handleFiles, false);
