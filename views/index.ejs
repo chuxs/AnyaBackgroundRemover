@@ -51,7 +51,8 @@
 
  
                         <% } else { %>
-                            <img id ="uploaded-modified-image" name="image-given" src= <%= result%> >
+                            <p class="loading">Loading...</p>
+                            <img id ="uploaded-modified-image" name="image-given" src= <%= result%> alt="Processing... Please wait!">
 
                         <% } %>
                      </form>
