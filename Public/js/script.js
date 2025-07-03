@@ -1,4 +1,5 @@
 var imgData = "";
+let secondsLeft = 5;
 
 const inputElement = document.getElementById("image_inputID");
 inputElement.addEventListener("change", handleFiles, false);
@@ -30,3 +31,13 @@ function handleFiles() {
 
 }
 
+
+// Update countdown every second
+const timer = setInterval(() => {
+  secondsLeft--;
+  
+  if (secondsLeft <= 0) {
+    clearInterval(timer);
+    document.getElementById('loading').style.display = 'none';
+  }
+}, 1000);
