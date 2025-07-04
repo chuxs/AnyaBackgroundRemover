@@ -160,6 +160,14 @@ nav {
     width: 300px; /* Adjust as needed */
 }
 
+#download-modified-image{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 300px; /* Adjust as needed */
+    width: 300px; /* Adjust as needed */
+}
+
 .loading{
     opacity: 1;
     transition: opacity 0.5s ease-in-out;

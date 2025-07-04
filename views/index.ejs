@@ -40,19 +40,20 @@
                        <!-- Erase backgound button -->
                        <button type="submit" class="cta-btn-upload cta-btn-rmbk"  formaction="/erase">Erase BG</button> 
 
-                       <button type="submit" class="cta-btn-upload cta-btn-rmbk" id="cta-btn-download" formaction="/erase">Download</button> 
+                       <label class="cta-btn-upload cta-btn-rmbk" id="cta-btn-download" onclick="imageDownload()">Download</label> 
                     </form>
                 </div>
             
                 <div class="feature-card feature-bkless">
-                    <form class="image-content" id="image-content-id" >
+                    <form class="image-content" id="image-content-id" enctype="multipart/form-data" >
                         <% if (!result) { %>
                         <img id ="uploaded-modified-image" style="display: none;" name="image-given" >
 
  
                         <% } else { %>
                             <p id="loading">⏳ Processing Image</p>
-                            <img id ="uploaded-modified-image" name="image-given" src= <%= result%> alt="Processing... Please wait!">
+                            <img id ="download-modified-image" name="image-given" src= <%= result %> alt="Process failed! Please try again">
+                            <div id="downloadImage"> </div>
 
                         <% } %>
                      </form>

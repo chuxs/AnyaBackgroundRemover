@@ -1,5 +1,5 @@
 var imgData = "";
-let secondsLeft = 6;
+let secondsLeft = 7;
 
 const inputElement = document.getElementById("image_inputID");
 inputElement.addEventListener("change", handleFiles, false);
@@ -37,17 +37,32 @@ const timer = setInterval(() => {
   
   if (secondsLeft <= 0) {
     clearInterval(timer);
-    document.getElementById('loading').style.display = 'none';
+    document.getElementById('loading').innerHTML = "Image is ready to download!";
   }
 }, 1000);
 
 const myImg = document.getElementById('cta-btn-download')
 
-myImg.addEventListener('click', () => {
-const link = document.createElement('a');
-link.href = myImg.src;
-link.download = 'modified-image.png';
-document.body.appendChild(link); // Required for Firefox
-link.click();
-document.body.removeChild(link); // Clean up
+myImg.addEventListener('click', (event) => {
+  const imgElement = document.getElementById('download-modified-image'); // Example by ID
+
+  // Get the image source (URL)
+  const imageSrc = imgElement.src;
+
+  downloadImage(imageSrc);
+
+  async function downloadImage(source){
+  const image = await fetch(source)
+  const imageBlog = await image.blob()
+  const imageURL = URL.createObjectURL(imageBlog)
+
+  const link = document.createElement('a');
+  link.href = imageURL;
+  link.download = 'modified-image.png';
+  link.style.display = 'none';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  }
+
 });
