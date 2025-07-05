@@ -47,14 +47,12 @@
                 <div class="feature-card feature-bkless">
                     <form class="image-content" id="image-content-id" enctype="multipart/form-data" >
                         <% if (!result) { %>
-                        <img id ="uploaded-modified-image" style="display: none;" name="image-given" >
+                        <img class="imageHolder" id ="uploaded-modified-image" style="display: none;" name="image-given" >
 
  
                         <% } else { %>
                             <p id="loading">⏳ Processing Image</p>
-                            <img id ="download-modified-image" name="image-given" src= <%= result %> alt="Api Request for the month is exhausted">
-                            <div id="downloadImage"> </div>
-
+                            <img class="imageHolder" id ="download-modified-image" name="image-given" src= <%= result %> alt="Api Server not responsive">
                         <% } %>
                      </form>
                 </div>

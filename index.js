@@ -58,7 +58,7 @@ app.post("/erase", upload.single('image_inputName'), async (req, res) => {
       const base64Image = Buffer.from(apiBackgroundRemover.data, 'binary').toString('base64');
       const mimeType = apiBackgroundRemover.headers['content-type'] || 'image/png';
 
-      // console.log(result);
+      // console.log(`data:${mimeType};base64,${base64Image}`);
       // res.render("index.ejs", { result : result.data.url });
       res.render("index.ejs", { result : `data:${mimeType};base64,${base64Image}`});
     } 

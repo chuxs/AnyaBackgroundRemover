@@ -1,5 +1,5 @@
 var imgData = "";
-let secondsLeft = 7;
+let secondsLeft = 6;
 
 const inputElement = document.getElementById("image_inputID");
 inputElement.addEventListener("change", handleFiles, false);
@@ -8,7 +8,7 @@ function handleFiles() {
   const fileList = this.files; /* now you can work with the file list */
   console.log(fileList);
 
-  imgData = document.getElementById("uploaded-modified-image");
+  imgData = document.querySelector(".imageHolder");
 
   const actualImage = URL.createObjectURL(fileList[0]);
   imgData.src = actualImage;
