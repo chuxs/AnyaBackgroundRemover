@@ -37,7 +37,8 @@ const timer = setInterval(() => {
   
   if (secondsLeft <= 0) {
     clearInterval(timer);
-    document.getElementById('loading').innerHTML = "Image is ready to download!";
+    // document.getElementById('loading').innerHTML = "Image is ready to download!";
+    document.getElementById('loading').style.display = "none";
   }
 }, 1000);
 
